@@ -18,9 +18,9 @@ const PostList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(fetchPosts({ _limit: 100, _start: 0 }));
+    dispatch(fetchPosts({ _limit: 0, _start: 0 }));
   }, []);
-
+  // sessionStorage.clear();
   // useEffect(() => {
   //   document.addEventListener("scroll", scrollHandler);
   //   return () => {
@@ -45,12 +45,6 @@ const PostList = () => {
     sessionStorage.clear();
     window.location.reload();
   };
-  // if (true) {
-  // <>
-  //   <h2>Посты закончились, загрузить заново? </h2>
-  //   <Button children={"загрузить заново"} onClick={() => {}} />
-  // </>;
-  // }
 
   return (
     <main>

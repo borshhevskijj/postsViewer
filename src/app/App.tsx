@@ -5,17 +5,15 @@ import MainPage from "../pages/main/MainPage";
 import { Route, Routes } from "react-router-dom";
 import Modal from "../shared/components/modal/Modal";
 import CreatePost from "../features/createPost/CreatePost";
-import "./App.css";
+import "./App.scss";
 import { Loader } from "../shared/components/loader/Loader";
+import Header from "../widgets/header/Header";
 function App() {
   // const [active, setActive] = useState(false);
 
   return (
     <div className="App">
-      {/* <button className="modal_btn" onClick={() => setActive(true)}>
-        Создать пост
-      </button>
-      <Modal active={active} setActive={setActive} children={<CreatePost modalStateSetter={setActive} />} /> */}
+      <Header />
 
       <Routes>
         <Route path="/" element={<MainPage />} />

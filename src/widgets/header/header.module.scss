@@ -1,0 +1,28 @@
+@import "../../shared/variables.scss";
+// @import url();
+.header {
+  display: flex;
+  gap: 10px;
+  & h1 {
+    color: $mainColorWhite;
+    font-size: 50px;
+    span {
+      color: $mainYellow;
+    }
+  }
+  section {
+    width: 50%;
+    aspect-ratio: 1/1.1;
+    height: auto;
+  }
+  & section:first-of-type {
+    background-color: $mainLightBlue;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    & div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
