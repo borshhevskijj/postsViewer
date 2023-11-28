@@ -1,0 +1,28 @@
+.postCard {
+  border-radius: 30px;
+}
+.postInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.postInfoPerson {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  & div:has(img) {
+    width: 60px;
+    height: 60px;
+    & img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+}
+.deleteIcon {
+  &:hover {
+    cursor: pointer;
+  }
+}

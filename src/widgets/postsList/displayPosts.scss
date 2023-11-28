@@ -1,0 +1,60 @@
+@import "../../shared/variables.scss";
+
+.postsContainer {
+  max-height: 1000px;
+  overflow-y: scroll;
+  // scroll-behavior: smooth;
+  border-radius: 30px;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+
+.postsContainer li:nth-child(odd) {
+  background-color: $mainLightBlue;
+  color: $mainColorWhite;
+  & section span {
+    background-color: $mainYellow;
+    color: $mainColorBlack;
+  }
+  & line {
+    //svg line
+    stroke: $mainColorWhite;
+  }
+}
+.postsContainer li:nth-child(even) {
+  background-color: $mainYellow; /* Цвет фона */
+  color: $mainColorBlack; /* Цвет текста */
+  & section span {
+    background-color: $mainLightBlue;
+    color: $mainColorWhite;
+  }
+  & line {
+    //svg line
+    stroke: $mainColorBlack;
+  }
+}
+
+.post-enter {
+  opacity: 0;
+}
+.post-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.post-exit {
+  opacity: 1;
+}
+.post-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+
+.post {
+  padding: 30px;
+  border-radius: 30px;
+  margin-bottom: $padding;
+}
+.post section {
+  padding: 30px 0 0 0;
+}

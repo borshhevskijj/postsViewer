@@ -5,7 +5,7 @@ import { Button } from "../../shared/components/button/Button";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { selectPosts } from "../../features/posts/postsSlice";
 import { fetchPostById } from "../../features/posts/postsThunk";
-import PostCard from "../../features/postCard/PostCard";
+import PostCard from "../../widgets/postCard/PostCard";
 import UpdatePost from "../../features/updatePost/UpdatePost";
 import Modal from "../../shared/components/modal/Modal";
 import { Loader } from "../../shared/components/loader/Loader";
