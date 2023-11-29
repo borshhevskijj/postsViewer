@@ -1,4 +1,3 @@
-import { Button } from "../../shared/components/button/Button";
 import Profile from "./Profile";
 import cl from "./header.module.scss";
 import HeaderTitle from "./HeaderTitle";

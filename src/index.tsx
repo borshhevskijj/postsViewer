@@ -1,4 +1,4 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./app/App";
 import { Provider } from "react-redux";
@@ -13,3 +13,8 @@ root.render(
     </Provider>
   </BrowserRouter>
 );
+// <StrictMode>
+
+{
+  /* </StrictMode> */
+}

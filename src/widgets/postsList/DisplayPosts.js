@@ -10,6 +10,7 @@ const DisplayPosts = ({ posts }) => {
   const buttonHandler = (id) => {
     navigate(`/posts/${id}`);
   };
+
   return (
     <TransitionGroup className="postsContainer" component={"ul"}>
       {posts.map((post) => {
@@ -17,9 +18,10 @@ const DisplayPosts = ({ posts }) => {
           <CSSTransition key={post.id} timeout={500} classNames="post">
             <li key={post.id} className="post">
               <PostCard
+                view="underline"
                 post={post}
                 onClick={() => buttonHandler(post.id)}
-                children={"подробнее"}
+                children={"view more"}
                 bodyCharsLimit={true}
                 key={post.id}
               />

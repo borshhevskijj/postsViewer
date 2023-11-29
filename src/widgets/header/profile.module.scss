@@ -5,11 +5,11 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-
   & .head {
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     padding: $padding * 2;
     border-radius: $borderRadius;
     background-color: $mainLightGrey;

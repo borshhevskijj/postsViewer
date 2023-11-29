@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Ipost } from "../../shared/types/post";
 import cl from "./postItem.module.scss";
-const MAX_CHARS_LIMIT = 55;
+const MAX_CHARS_LIMIT = 75;
 
 const truncateTextAtLastSpace = (content: string) => {
   const slice = content.substring(0, MAX_CHARS_LIMIT);
@@ -22,12 +22,13 @@ const contentLenghtEditor = (limit: boolean, content: string) => {
 export interface PostItemProps {
   post: Ipost;
   bodyCharsLimit: boolean;
+  // test?: boolean;
 }
 
 export const PostItem: FC<PostItemProps> = ({ post, bodyCharsLimit }) => {
   const addZeroToID = (id: number) => {
-    if (id > 10) {
-      return 10;
+    if (id >= 10) {
+      return id;
     }
     return `0${id}`;
   };

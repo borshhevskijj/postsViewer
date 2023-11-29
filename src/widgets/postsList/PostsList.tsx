@@ -49,7 +49,7 @@ const PostList = () => {
   };
 
   // clearStorage();
-  sessionStorage.clear();
+  // sessionStorage.clear();
   return (
     <main className={cl.main}>
       <DisplayPosts posts={posts} />

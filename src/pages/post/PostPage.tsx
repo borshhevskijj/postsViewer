@@ -9,7 +9,8 @@ import PostCard from "../../widgets/postCard/PostCard";
 import UpdatePost from "../../features/updatePost/UpdatePost";
 import Modal from "../../shared/components/modal/Modal";
 import { Loader } from "../../shared/components/loader/Loader";
-// import Loader from '../../shared/loader/Loader';
+import cl from "./postPage.module.scss";
+import PostPageCard from "../../widgets/postPageCard/PostPageCard";
 
 const PostPage = () => {
   const { id } = useParams();
@@ -27,25 +28,27 @@ const PostPage = () => {
     return <Loader size="Large" />;
   }
   if (status === "rejected") {
-    return <p>Какая-то ошибка</p>;
+    return <p>error</p>;
   }
   if (!post) {
     return (
       <>
-        <p>Постов нет! Пусто..</p>
-        <Button onClick={() => navigate("/")} children={"На главную"} />
+        <p>Posts empty</p>
+        <Button view="underline" onClick={() => navigate(-1)} children={"Go back"} />
       </>
     );
   }
+  // adsdsads
   return (
     <>
       {!!post && (
         <>
-          <PostCard post={post} bodyCharsLimit={false} onClick={() => navigate("/")} children={"На главную"} />
-          <button className="modal_btn" onClick={() => setActive(true)}>
-            Изменить пост
-          </button>
+          <div className={cl.postCardWrapper}>
+            <PostPageCard body={post.body} id={post.id} title={post.title} userId={post.userId} />
+          </div>
+
           <Modal
+            view="colored"
             active={active}
             setActive={setActive}
             children={<UpdatePost modalStateSetter={setActive} post={post} />}

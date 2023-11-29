@@ -125,12 +125,9 @@ export const createPost = createAsyncThunk<void,PostPreview>(
           },
         })
         if (!response.ok) {
-          console.log('err in update');
-          
           throw new Error ('Server Error')
         }
         const data = await response.json()
-        // console.log(data,'updatePostTHUNK');
 
         dispatch(postsSlice.actions.updatePost(data))
       } catch (error: any) {

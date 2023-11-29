@@ -1,0 +1,12 @@
+@import "../../shared/variables.scss";
+
+.postCardWrapper {
+  padding: 30px;
+  border-radius: 30px;
+  background-color: $mainYellow;
+  // margin-bottom: $padding;
+  & line {
+    //svg line
+    stroke: $mainColorBlack;
+  }
+}

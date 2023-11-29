@@ -1,0 +1,25 @@
+#createPost {
+  display: flex;
+  background-color: red;
+}
+
+.personalInfo {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  & div:has(img) {
+    width: 60px;
+    height: 60px;
+    & img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+}
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 25px;
+}

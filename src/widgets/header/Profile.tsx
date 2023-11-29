@@ -1,10 +1,12 @@
 import cl from "./profile.module.scss";
 import icon from "../../shared/icons/adminIcon.png";
+import { NavLink } from "react-router-dom";
+
 const Profile = () => {
   return (
     <section className={cl.profile}>
       <div className={cl.head}>
-        <button>READ</button>
+        <h3>Welcome</h3>
         <div className={cl.headInfo}>
           <span>Admin</span>
           <div>

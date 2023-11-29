@@ -1,11 +1,10 @@
 @import "../../shared/variables.scss";
-.postItemContainer {
-}
 .postItemContainerWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 15%;
 
   & span {
     min-width: 50px;
@@ -14,6 +13,6 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    background-color: green;
+    background-color: $mainLightBlue;
   }
 }

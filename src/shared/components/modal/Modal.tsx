@@ -6,14 +6,13 @@ interface ModalProps {
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
   children: React.ReactNode;
+  view: "colored" | "underline";
 }
-
-const Modal: React.FC<ModalProps> = ({ active, setActive, children }) => {
+const Modal: React.FC<ModalProps> = ({ active, setActive, children, view }) => {
   return (
     <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
-      <Button onClick={() => setActive(false)} children={<span>&times;</span>} />
+      <Button view={view} onClick={() => setActive(false)} children={<span>&times;</span>} />
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
-        {/* <CreatePost modalStateSetter={setActive} /> */}
         {children}
       </div>
     </div>

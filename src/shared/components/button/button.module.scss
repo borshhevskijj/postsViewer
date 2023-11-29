@@ -1,0 +1,18 @@
+@import "../../variables.scss";
+.button {
+  font-size: 15px;
+  text-transform: uppercase;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.button.colored {
+  padding: 15px 53px;
+  background-color: $mainYellow;
+  border-radius: 50px;
+}
+.button.underline {
+  background-color: transparent;
+  text-decoration: underline;
+  color: inherit;
+}
