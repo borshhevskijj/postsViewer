@@ -16,3 +16,9 @@
     background-color: $mainLightBlue;
   }
 }
+
+@media (max-width: 820px) {
+  .postItemContainerWrapper {
+    margin-bottom: 10%;
+  }
+}

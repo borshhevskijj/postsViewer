@@ -3,7 +3,7 @@ import cl from "./button.module.scss";
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onClick: () => void;
   children: string | React.ReactNode | React.ReactElement;
-  view: "colored" | "underline";
+  view: "colored" | "underline" | "transparent";
 }
 
 export const Button: React.FC<ButtonProps> = ({ onClick, children, view }) => {

@@ -7,20 +7,34 @@
   width: 50%;
   height: 100%;
   aspect-ratio: 1/0.9;
+
   .description {
     display: flex;
     // gap: 60px;
     flex-direction: column;
     justify-content: space-between;
     min-height: 70%;
-
+    & h2 {
+      padding: 15px 0;
+    }
     &:not(h2) {
       font-size: 22px;
     }
+
     & div {
       display: flex;
       flex-direction: column;
       gap: 25px;
+    }
+  }
+}
+
+@media (max-width: 1220px) {
+  .about {
+    .description {
+      &:not(h2) {
+        font-size: 17px;
+      }
     }
   }
 }

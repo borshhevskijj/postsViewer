@@ -11,11 +11,11 @@ import Modal from "../../shared/components/modal/Modal";
 import UpdatePost from "../../features/updatePost/UpdatePost";
 import cl from "../postCard/postCard.module.scss";
 import UpdateIcon from "../../shared/icons/UpdateIcon";
+// костыль
 
 const PostPageCard: React.FC<Ipost> = (post) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
   const deletePost = (id: number) => {
     dispatch(deletePostById(id));
   };

@@ -8,13 +8,13 @@ import CreatePost from "../features/createPost/CreatePost";
 import "./App.scss";
 import { Loader } from "../shared/components/loader/Loader";
 import Header from "../widgets/header/Header";
+import Footer from "../widgets/footer/Footer";
 function App() {
   // const [active, setActive] = useState(false);
 
   return (
     <div className="App">
       <Header />
-
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/posts" element={<MainPage />} />
@@ -22,6 +22,7 @@ function App() {
         <Route path="/loader" element={<Loader size="Small" />} />
         <Route path="*" element={<p>Такой страницы не существует</p>} />
       </Routes>
+      <Footer />
     </div>
   );
 }

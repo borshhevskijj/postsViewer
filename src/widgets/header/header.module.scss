@@ -27,3 +27,13 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column-reverse;
+    section {
+      width: 100%;
+      aspect-ratio: 1/0.5;
+    }
+  }
+}

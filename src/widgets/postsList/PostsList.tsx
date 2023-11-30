@@ -40,20 +40,11 @@ const PostList = () => {
   //   }
   // };
 
-  // const buttonHandler = (id: number) => {
-  //   navigate(`/posts/${id}`);
-  // };
-  const clearStorage = () => {
-    sessionStorage.clear();
-    window.location.reload();
-  };
-
-  // clearStorage();
-  // sessionStorage.clear();
   return (
     <main className={cl.main}>
       <DisplayPosts posts={posts} />
-      {status === "loading" && <Loader size="Small" />}
+      {status === "loading" && <Loader size="Large" />}
+      {/* <Loader size="Large" /> */}
     </main>
   );
 };

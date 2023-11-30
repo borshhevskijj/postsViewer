@@ -47,3 +47,25 @@
     }
   }
 }
+
+@media (max-width: 820px) {
+  .profile {
+    & .head {
+      padding: 7px 17px;
+      border-radius: 25px;
+    }
+
+    & .headInfo {
+      & div:has(img) {
+        width: 45px;
+        height: 45px;
+      }
+    }
+
+    & .imgWrapper {
+      & img {
+        border-radius: 25px;
+      }
+    }
+  }
+}

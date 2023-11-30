@@ -6,13 +6,29 @@
     cursor: pointer;
   }
 }
-.button.colored {
+.button.colored,
+.button.transparent {
   padding: 15px 53px;
-  background-color: $mainYellow;
   border-radius: 50px;
+}
+.button.colored {
+  background-color: $mainYellow;
 }
 .button.underline {
   background-color: transparent;
   text-decoration: underline;
   color: inherit;
+}
+.button.transparent {
+  background-color: transparent;
+  color: inherit;
+  border: 1px solid black;
+}
+
+@media (max-width: 820px) {
+  .button.colored,
+  .button.transparent {
+    padding: 13px 48px;
+    font-size: 14px;
+  }
 }

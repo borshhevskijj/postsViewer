@@ -32,3 +32,12 @@
   display: flex;
   justify-content: end;
 }
+
+@media (max-width: 820px) {
+  .postInfoPerson {
+    & div:has(img) {
+      width: 45px;
+      height: 45px;
+    }
+  }
+}

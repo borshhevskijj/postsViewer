@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
 import { createPost } from "../posts/postsThunk";
-import cl from "./createPost.module.scss";
+import cl from "../formPost.module.scss";
 import icon from "../../shared/icons/adminIcon.png";
 import { Button } from "../../shared/components/button/Button";
 type props = {
@@ -26,13 +26,13 @@ const CreatePost: React.FC<props> = ({ modalStateSetter }) => {
     dispatch(createPost(inputs)).then(() => closeModal());
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     const { name, value } = e.target;
     setInputs((prev) => ({ ...prev, [name]: value }));
     // console.log(inputs);
   };
   return (
-    <>
+    <div className={cl.formContent}>
       <h1>Create post</h1>
       <div className={cl.personalInfo}>
         <div>
@@ -41,21 +41,28 @@ const CreatePost: React.FC<props> = ({ modalStateSetter }) => {
         <span>By Admin</span>
       </div>
 
-      <form id={cl.createPost} onSubmit={handleSubmit}>
-        <label>
-          Title:
-          <input type="text" name="title" value={inputs.title || ""} onChange={handleChange} />
-        </label>
-        <label>
-          Body:
-          <input type="text" name="body" value={inputs.body || ""} onChange={handleChange} />
-        </label>
+      <form onSubmit={handleSubmit}>
+        <input
+          className={cl.title}
+          placeholder="title"
+          type="text"
+          name="title"
+          value={inputs.title || ""}
+          onChange={handleChange}
+        />
+        <textarea
+          className={cl.body}
+          placeholder="Write something...."
+          name="body"
+          value={inputs.body || ""}
+          onChange={handleChange}
+        />
         <div className={cl.buttonWrapper}>
           <Button children="SUBMIT" onClick={() => false} view="colored" type="submit" />
-          <Button children="CLOSE" onClick={closeModal} view="colored" />
+          <Button children="CLOSE" onClick={closeModal} view="transparent" />
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
