@@ -1,6 +1,8 @@
 @import "../../shared/variables.scss";
 
 .postsContainer {
+  display: flex;
+  flex-direction: column-reverse;
   max-height: 1000px;
   border-radius: 30px;
   overflow-y: scroll;
