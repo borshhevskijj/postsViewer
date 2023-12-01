@@ -40,7 +40,7 @@
 @media (max-width: 768px) {
   .about {
     width: 100%;
-    aspect-ratio: 1/0.6;
+    aspect-ratio: 2/1;
 
     .description {
       & div {
@@ -49,5 +49,10 @@
         // gap: 25px;
       }
     }
+  }
+}
+@media (max-width: 500px) {
+  .about {
+    aspect-ratio: 1/0.9;
   }
 }
