@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Loader } from "../../shared/components/loader/Loader";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectPosts } from "../../features/posts/postsSlice";
@@ -13,6 +13,7 @@ const PostList = () => {
   useEffect(() => {
     dispatch(fetchPosts({ _limit: 20, _start: 0 }));
   }, []);
+
   if (!posts.length) {
     return <h3> posts is empty</h3>;
   }
