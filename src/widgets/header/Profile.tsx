@@ -15,7 +15,7 @@ const Profile = () => {
         </div>
       </div>
       <div className={cl.imgWrapper}>
-        <img src={`https://random.imagecdn.app/1920/1080`} loading="lazy" alt="#" />
+        <img src={`https://random.imagecdn.app/1920/1080`} alt="random image" />
       </div>
     </section>
   );

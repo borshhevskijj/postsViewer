@@ -7,7 +7,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // color: $mainColorBlack;
   user-select: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -61,4 +60,11 @@ section {
   body {
     padding: 10px;
   }
+}
+
+html {
+  overflow: auto;
+}
+html:has(.modal.active) {
+  overflow: hidden;
 }

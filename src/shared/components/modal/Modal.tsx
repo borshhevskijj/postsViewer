@@ -2,7 +2,6 @@ import React from "react";
 import "../modal/modal.scss";
 import { Button } from "../button/Button";
 import RemoveIcon from "../../icons/RemoveIcon";
-// import CreatePost from "../../../features/createPost/CreatePost";
 interface ModalProps {
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;

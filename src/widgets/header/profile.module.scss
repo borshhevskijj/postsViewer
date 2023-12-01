@@ -69,3 +69,10 @@
     }
   }
 }
+@media (max-width: 768px) {
+  .profile {
+    & .imgWrapper {
+      aspect-ratio: 2/1;
+    }
+  }
+}

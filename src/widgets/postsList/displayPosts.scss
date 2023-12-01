@@ -22,8 +22,8 @@
   }
 }
 .postsContainer li:nth-child(even) {
-  background-color: $mainYellow; /* Цвет фона */
-  color: $mainColorBlack; /* Цвет текста */
+  background-color: $mainYellow;
+  color: $mainColorBlack;
   & section span {
     background-color: $mainLightBlue;
     color: $mainColorWhite;
@@ -64,7 +64,6 @@
   }
   .post {
     padding: 17px;
-    // padding: 30px;
     border-radius: 25px;
   }
 }

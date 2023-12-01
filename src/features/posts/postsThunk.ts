@@ -1,8 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import thunkMiddleware from 'redux-thunk'
 import { Ipost } from "../../shared/types/post"
 import {postsSlice} from "./postsSlice"
-import { RootState,AppThunk } from "../../app/store/store"
+import { RootState } from "../../app/store/store"
 
 interface Params {
   [key: string]: any;
@@ -28,12 +27,9 @@ export const fetchPosts = createAsyncThunk(
     "posts/fetchPosts",
     async (params:baseParams,{rejectWithValue}) => {
       if (sessionStorage.getItem('posts')) {
-        console.log('fetchPosts form storage');
-        
         return {data:JSON.parse(sessionStorage.getItem('posts')!),totalCount:null}
       }
       try {
-        console.log('fetchPosts form JSON PLACEHOLDER');
         const response = await fetch(createUrl('/posts', params))
         if (!response.ok) {
           throw new Error ('Server Error')
@@ -42,7 +38,7 @@ export const fetchPosts = createAsyncThunk(
         const data:Ipost[] = await response.json()
 
         const increasedBodyChars = data.map((post) => {
-          // для наглядности
+          // для наглядности увеличиваю количество символов в data.body
           return ({
             ...post,
             body: post.body.repeat(8)
@@ -81,7 +77,6 @@ export const fetchPostById = createAsyncThunk(
       }
     }
   )
-  // create  
 type PostPreview = Omit<Ipost, 'userId' | 'id'>;
 export const createPost = createAsyncThunk<void,PostPreview>(
     "posts/createPost",

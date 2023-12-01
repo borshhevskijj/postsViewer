@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// import { PostItem } from "../../entities/post/PostItem";
 import { Button } from "../../shared/components/button/Button";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { selectPosts } from "../../features/posts/postsSlice";
 import { fetchPostById } from "../../features/posts/postsThunk";
-import PostCard from "../../widgets/postCard/PostCard";
 import UpdatePost from "../../features/updatePost/UpdatePost";
 import Modal from "../../shared/components/modal/Modal";
 import { Loader } from "../../shared/components/loader/Loader";
@@ -38,7 +36,6 @@ const PostPage = () => {
       </>
     );
   }
-  // adsdsads
   return (
     <>
       {!!post && (

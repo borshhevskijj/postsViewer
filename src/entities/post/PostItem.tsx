@@ -22,7 +22,6 @@ const contentLenghtEditor = (limit: boolean, content: string) => {
 export interface PostItemProps {
   post: Ipost;
   bodyCharsLimit: boolean;
-  // test?: boolean;
 }
 
 export const PostItem: FC<PostItemProps> = ({ post, bodyCharsLimit }) => {

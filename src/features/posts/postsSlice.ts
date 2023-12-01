@@ -6,7 +6,6 @@ import { RootState } from "../../app/store/store";
 
 
 interface InitialState {
-    // posts: Ipost[] | Ipost
     posts: Ipost[]
     post: Ipost | null
     status: null | 'loading' | 'fulfilled' | 'rejected'
@@ -21,7 +20,6 @@ const initialState:InitialState={
     lastId: 0
 }
 
-//  при удалении из postPage не исчезает пост
 export const postsSlice = createSlice({
     name:'posts',
     initialState,
@@ -63,8 +61,13 @@ export const postsSlice = createSlice({
           .addCase(fetchPosts.fulfilled, (state, action) => {
             state.status = 'fulfilled';
             state.posts = action.payload.data
+            if (action.payload.totalCount) {
+              state.lastId =  +action.payload.totalCount
+            }
+            else{
+              state.lastId = action.payload.data.at(-1)?.id
+            }
             
-            state.lastId = action.payload.data.at(-1)?.id || action.payload.totalCount // объяснить!
             sessionStorage.setItem('posts',JSON.stringify(action.payload.data))
             sessionStorage.setItem('lastId',String(state.lastId))
             state.error = null
@@ -74,7 +77,6 @@ export const postsSlice = createSlice({
             state.status = 'rejected';
             state.error = action.error;
           })
-          // fetchPostById cases
           .addCase(fetchPostById.pending, (state) => {
             state.status = 'loading';
           })

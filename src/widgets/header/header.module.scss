@@ -15,10 +15,11 @@
     height: auto;
   }
   & section:first-of-type {
-    background-color: $mainLightBlue;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    background-color: $mainLightBlue;
+    gap: 10px;
     & div {
       display: flex;
       justify-content: space-between;
@@ -33,7 +34,7 @@
     flex-direction: column-reverse;
     section {
       width: 100%;
-      aspect-ratio: 1/0.5;
+      aspect-ratio: 1/0.6;
     }
   }
 }

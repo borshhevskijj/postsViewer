@@ -10,7 +10,6 @@
 
   .description {
     display: flex;
-    // gap: 60px;
     flex-direction: column;
     justify-content: space-between;
     min-height: 70%;
@@ -36,5 +35,11 @@
         font-size: 17px;
       }
     }
+  }
+}
+@media (max-width: 768px) {
+  .about {
+    width: 100%;
+    aspect-ratio: 1/0.6;
   }
 }

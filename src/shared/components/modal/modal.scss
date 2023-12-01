@@ -1,13 +1,14 @@
+@import "../../variables.scss";
 .modal {
-  width: 100dvw;
-  height: 100dvh;
-  background-color: rgba($color: #000000, $alpha: 0.75);
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba($color: #000000, $alpha: 0.75);
   transform: scale(0);
   .modal__content {
     transform: scale(0);
@@ -22,21 +23,41 @@
       border-radius: 30px;
       width: 85%;
       height: 80%;
-      background-color: aliceblue;
+      background-color: $mainLightGrey;
     }
   }
   .modal__content_buttonWrapper {
     position: absolute;
+    width: 35px;
+    height: 35px;
     left: calc(100% - 35px - 45px);
-    top: 64px;
-    // width: 30px;
-    // height: 30px;
-    & button svg {
-      width: 35px;
-      height: 35px;
-      & line {
-        stroke: black;
+    top: 35px;
+    & button {
+      width: 100%;
+      height: 100%;
+      svg {
+        width: 100%;
+        height: 100%;
+        & line {
+          stroke: black;
+        }
       }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .modal {
+    &.active {
+      .modal__content {
+        height: 50%;
+        padding: 25px;
+        border-radius: 25px;
+      }
+    }
+    .modal__content_buttonWrapper {
+      top: 20px;
+      left: calc(100% - 35px - 25px); // ширина кнопки минус падинг
     }
   }
 }

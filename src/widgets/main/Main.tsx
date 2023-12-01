@@ -1,4 +1,3 @@
-import React from "react";
 import About from "../about/About";
 import PostList from "../postsList/PostsList";
 import cl from "./main.module.scss";

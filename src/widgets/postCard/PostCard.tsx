@@ -1,4 +1,4 @@
-import React, { ReactComponentElement } from "react";
+import React from "react";
 import { PostItem, PostItemProps } from "../../entities/post/PostItem";
 import { Button, ButtonProps } from "../../shared/components/button/Button";
 import { useAppDispatch } from "../../app/hooks";
@@ -6,7 +6,6 @@ import { deletePostById, updatePost } from "../../features/posts/postsThunk";
 import cl from "./postCard.module.scss";
 import icon from "../../shared/icons/adminIcon.png";
 import RemoveIcon from "../../shared/icons/RemoveIcon";
-import { Ipost } from "../../shared/types/post";
 
 type PostCardProps = PostItemProps & ButtonProps;
 

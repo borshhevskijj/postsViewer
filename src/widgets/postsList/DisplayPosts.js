@@ -1,4 +1,3 @@
-import React from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useNavigate } from "react-router-dom";
 import PostCard from "../postCard/PostCard";

@@ -13,7 +13,6 @@ const CreatePost: React.FC<props> = ({ modalStateSetter }) => {
     body: "",
   });
   const dispatch = useAppDispatch();
-  //   const [error,setError] = useState()
   const closeModal = () => {
     modalStateSetter(false);
     setInputs({
@@ -29,7 +28,6 @@ const CreatePost: React.FC<props> = ({ modalStateSetter }) => {
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     const { name, value } = e.target;
     setInputs((prev) => ({ ...prev, [name]: value }));
-    // console.log(inputs);
   };
   return (
     <div className={cl.formContent}>
