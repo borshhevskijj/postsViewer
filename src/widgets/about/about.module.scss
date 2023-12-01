@@ -42,10 +42,12 @@
     width: 100%;
     aspect-ratio: 1/0.6;
 
-    & div {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
+    .description {
+      & div {
+        display: block;
+        // flex-direction: column;
+        // gap: 25px;
+      }
     }
   }
 }
