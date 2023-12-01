@@ -61,13 +61,7 @@ export const postsSlice = createSlice({
           .addCase(fetchPosts.fulfilled, (state, action) => {
             state.status = 'fulfilled';
             state.posts = action.payload.data
-            if (action.payload.totalCount) {
-              state.lastId =  +action.payload.totalCount
-            }
-            else{
               state.lastId = action.payload.data.at(-1)?.id
-            }
-            
             sessionStorage.setItem('posts',JSON.stringify(action.payload.data))
             sessionStorage.setItem('lastId',String(state.lastId))
             state.error = null

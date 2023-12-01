@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { PostItem, PostItemProps } from "../../entities/post/PostItem";
-import { Button, ButtonProps } from "../../shared/components/button/Button";
+import { PostItem } from "../../entities/post/PostItem";
+import { Button } from "../../shared/components/button/Button";
 import { useAppDispatch } from "../../app/hooks";
 import { deletePostById, updatePost } from "../../features/posts/postsThunk";
 import icon from "../../shared/icons/adminIcon.png";
