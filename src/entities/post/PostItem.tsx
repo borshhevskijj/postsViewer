@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Ipost } from "../../shared/types/post";
 import cl from "./postItem.module.scss";
-const MAX_CHARS_LIMIT = 75;
+const MAX_CHARS_LIMIT = 200;
 
 const truncateTextAtLastSpace = (content: string) => {
   const slice = content.substring(0, MAX_CHARS_LIMIT);

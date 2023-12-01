@@ -26,6 +26,9 @@
       align-items: center;
       color: $mainColorWhite;
     }
+    & button {
+      color: $mainColorBlack !important;
+    }
   }
 }
 

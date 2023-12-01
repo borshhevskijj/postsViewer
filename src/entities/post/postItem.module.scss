@@ -1,4 +1,7 @@
 @import "../../shared/variables.scss";
+.postItemContainer {
+  padding-bottom: 10px;
+}
 .postItemContainerWrapper {
   display: flex;
   flex-direction: row;
