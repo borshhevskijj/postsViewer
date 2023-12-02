@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import { createPost } from "../posts/postsThunk";
+import { createPost } from "../../shared/api/posts/postsThunk";
 import cl from "../formPost.module.scss";
 import icon from "../../shared/icons/adminIcon.png";
 import { Button } from "../../shared/components/button/Button";

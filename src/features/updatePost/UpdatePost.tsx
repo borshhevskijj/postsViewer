@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import { updatePost } from "../posts/postsThunk";
+import { updatePost } from "../../shared/api/posts/postsThunk";
 import { Ipost } from "../../shared/types/post";
 import cl from "../formPost.module.scss";
 import { Button } from "../../shared/components/button/Button";

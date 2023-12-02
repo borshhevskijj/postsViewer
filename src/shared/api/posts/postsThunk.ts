@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { Ipost } from "../../shared/types/post"
+import { Ipost } from "../../types/post"
 import {postsSlice} from "./postsSlice"
-import { RootState } from "../../app/store/store"
+import { RootState } from "../../../app/store/store"
 
 interface Params {
   [key: string]: any;
@@ -103,8 +103,8 @@ export const createPost = createAsyncThunk<void,PostPreview>(
       }
     }
   )
+  
   type PostUpdate = Omit<Ipost, 'userId'>;
-
   export const updatePost = createAsyncThunk<void,PostUpdate>(
     "posts/updatePost",
     async({body,title,id},{rejectWithValue,dispatch}) => {

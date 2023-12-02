@@ -1,7 +1,7 @@
 import {  createSlice, PayloadAction} from "@reduxjs/toolkit";
 import { fetchPosts,fetchPostById} from "./postsThunk";
-import { Ipost } from "../../shared/types/post";
-import { RootState } from "../../app/store/store";
+import { Ipost } from "../../types/post";
+import { RootState } from "../../../app/store/store";
 
 
 

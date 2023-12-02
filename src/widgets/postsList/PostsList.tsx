@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Loader } from "../../shared/components/loader/Loader";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { selectPosts } from "../../features/posts/postsSlice";
-import { fetchPosts } from "../../features/posts/postsThunk";
+import { selectPosts } from "../../shared/api/posts/postsSlice";
+import { fetchPosts } from "../../shared/api/posts/postsThunk";
 import cl from "./postList.module.scss";
 import DisplayPosts from "./DisplayPosts";
 

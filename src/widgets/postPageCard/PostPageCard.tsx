@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PostItem } from "../../entities/post/PostItem";
 import { Button } from "../../shared/components/button/Button";
 import { useAppDispatch } from "../../app/hooks";
-import { deletePostById, updatePost } from "../../features/posts/postsThunk";
+import { deletePostById, updatePost } from "../../shared/api/posts/postsThunk";
 import icon from "../../shared/icons/adminIcon.png";
 import RemoveIcon from "../../shared/icons/RemoveIcon";
 import { Ipost } from "../../shared/types/post";
