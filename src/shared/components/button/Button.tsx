@@ -1,7 +1,7 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import cl from "./button.module.scss";
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  onClick: () => void;
+  onClick: (e: SyntheticEvent) => void;
   children: string | React.ReactNode | React.ReactElement;
   view: "colored" | "underline" | "transparent";
 }

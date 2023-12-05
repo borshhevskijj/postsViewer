@@ -16,12 +16,13 @@ const UpdatePost: React.FC<props> = ({ modalStateSetter, post: { body, id, title
     body,
   });
   const dispatch = useAppDispatch();
-  const closeModal = () => {
+  const closeModal = (e: React.SyntheticEvent) => {
+    e.preventDefault();
     modalStateSetter(false);
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(updatePost({ ...inputs, id })).then(() => closeModal());
+    dispatch(updatePost({ ...inputs, id })).then(() => closeModal(e));
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
