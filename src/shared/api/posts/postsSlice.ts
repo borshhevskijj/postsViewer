@@ -32,13 +32,13 @@ export const postsSlice = createSlice({
           sessionStorage.setItem('posts',JSON.stringify(state.posts))
         },
         
-        deletePost(state, action) {
+        deletePost(state, action) {          
           state.posts = state.posts.filter(p => p.id !== action.payload) 
           if (action.payload === state.lastId) {
             state.lastId = state.posts.at(-1)?.id || state.lastId - 1
             sessionStorage.setItem('lastId',String(state.lastId))
           }
-          else if(state.post?.id === action.payload){
+           if(state.post?.id === action.payload){
             state.post = null
           }
 

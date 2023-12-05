@@ -15,7 +15,6 @@ import UpdateIcon from "../../shared/icons/UpdateIcon";
 
 const PostPageCard: React.FC<Ipost> = (post) => {
   const [active, setActive] = useState(false);
-
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const deletePost = (id: number) => {
