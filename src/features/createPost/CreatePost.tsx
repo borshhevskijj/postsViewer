@@ -49,6 +49,7 @@ const CreatePost: React.FC<props> = ({ modalStateSetter }) => {
           errorClassName: "",
         });
       }, 4000);
+
       return;
     }
     dispatch(createPost(inputs)).then(() => closeModal(e));

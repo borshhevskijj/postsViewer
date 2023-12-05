@@ -16,8 +16,6 @@ const PostPage = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const [active, setActive] = useState(false);
-
   useEffect(() => {
     dispatch(fetchPostById(Number(id)));
   }, [id]);
@@ -43,13 +41,6 @@ const PostPage = () => {
           <div className={cl.postCardWrapper}>
             <PostPageCard body={post.body} id={post.id} title={post.title} userId={post.userId} />
           </div>
-
-          <Modal
-            view="colored"
-            active={active}
-            setActive={setActive}
-            children={<UpdatePost modalStateSetter={setActive} post={post} />}
-          />
         </>
       )}
     </>

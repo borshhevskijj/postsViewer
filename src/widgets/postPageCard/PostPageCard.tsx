@@ -14,6 +14,8 @@ import UpdateIcon from "../../shared/icons/UpdateIcon";
 // костыль
 
 const PostPageCard: React.FC<Ipost> = (post) => {
+  const [active, setActive] = useState(false);
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const deletePost = (id: number) => {
@@ -24,7 +26,6 @@ const PostPageCard: React.FC<Ipost> = (post) => {
     dispatch(updatePost(post));
   };
 
-  const [active, setActive] = useState(false);
   return (
     <>
       <div className={cl.postInfo}>
@@ -49,12 +50,14 @@ const PostPageCard: React.FC<Ipost> = (post) => {
         <Button onClick={() => navigate("/")} children={"Go home"} view={"underline"} />
       </div>
 
-      <Modal
-        active={active}
-        setActive={setActive}
-        view="underline"
-        children={<UpdatePost modalStateSetter={setActive} post={post} />}
-      />
+      {active && (
+        <Modal
+          active={active}
+          setActive={setActive}
+          view="underline"
+          children={<UpdatePost modalStateSetter={setActive} post={post} />}
+        />
+      )}
     </>
   );
 };

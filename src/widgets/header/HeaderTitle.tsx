@@ -5,6 +5,7 @@ import CreatePost from "../../features/createPost/CreatePost";
 
 const HeaderTitle = () => {
   const [active, setActive] = useState(false);
+
   return (
     <>
       <section>
@@ -16,12 +17,15 @@ const HeaderTitle = () => {
           I hope readers can <span>have fun</span> and find the right stuff for them!
         </h2>
       </section>
-      <Modal
-        view="underline"
-        active={active}
-        setActive={setActive}
-        children={<CreatePost modalStateSetter={setActive} />}
-      />
+
+      {active && (
+        <Modal
+          view="underline"
+          active={active}
+          setActive={setActive}
+          children={<CreatePost modalStateSetter={setActive} />}
+        />
+      )}
     </>
   );
 };
