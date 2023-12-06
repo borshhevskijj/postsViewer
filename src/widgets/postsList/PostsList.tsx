@@ -11,7 +11,7 @@ const PostList = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchPosts({ _limit: 2, _start: 0 }));
+    dispatch(fetchPosts({ _limit: 20, _start: 0 }));
   }, []);
 
   if (!posts.length) {
