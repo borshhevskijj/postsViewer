@@ -11,10 +11,14 @@ type PostCardProps = PostItemProps & ButtonProps;
 
 const PostCard: React.FC<PostCardProps> = ({ post, bodyCharsLimit, children, onClick, view }) => {
   const dispatch = useAppDispatch();
-
+  let isFirstCall = true;
   const deletePost = (id: number) => {
-    dispatch(deletePostById(id));
+    if (isFirstCall) {
+      dispatch(deletePostById(id));
+      isFirstCall = false;
+    }
   };
+
   return (
     <>
       <div className={cl.postInfo}>

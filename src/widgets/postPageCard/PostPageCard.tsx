@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PostItem } from "../../entities/post/PostItem";
 import { Button } from "../../shared/components/button/Button";
 import { useAppDispatch } from "../../app/hooks";
@@ -17,13 +17,27 @@ const PostPageCard: React.FC<Ipost> = (post) => {
   const [active, setActive] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  let isFirstCall = true;
+
   const deletePost = (id: number) => {
-    dispatch(deletePostById(id));
+    if (isFirstCall) {
+      dispatch(deletePostById(id));
+      isFirstCall = false;
+    }
   };
   const updPost = (post: Ipost) => {
-    setActive(true);
-    dispatch(updatePost(post));
+    if (isFirstCall) {
+      setActive(true);
+      dispatch(updatePost(post));
+      isFirstCall = false;
+    }
   };
+  useEffect(() => {
+    setTimeout(() => {
+      isFirstCall = true;
+    }, 1000);
+    console.log(isFirstCall);
+  }, [isFirstCall]);
 
   return (
     <>

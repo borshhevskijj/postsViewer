@@ -31,6 +31,7 @@ export const PostItem: FC<PostItemProps> = ({ post, bodyCharsLimit }) => {
     }
     return `0${id}`;
   };
+
   return (
     <article className={cl.postItemContainer}>
       <section className={cl.postItemContainerWrapper}>

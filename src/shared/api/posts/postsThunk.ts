@@ -77,10 +77,11 @@ export const fetchPostById = createAsyncThunk(
       }
     }
   )
+  // ss
 type PostPreview = Omit<Ipost, 'userId' | 'id'>;
 export const createPost = createAsyncThunk<void,PostPreview>(
     "posts/createPost",
-    async({body,title},{rejectWithValue,dispatch,getState}) => {
+    async({body,title},{rejectWithValue,dispatch}) => {
       try {
         const response = await fetch(createUrl(`/posts`),{
           method: 'POST',

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
 import { createPost } from "../../shared/api/posts/postsThunk";
 import cl from "../formPost.module.scss";
@@ -22,6 +22,7 @@ const CreatePost: React.FC<props> = ({ modalStateSetter }) => {
     errorClassName: "",
   });
   const dispatch = useAppDispatch();
+  let isFirstCall = true;
 
   const closeModal = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -35,25 +36,35 @@ const CreatePost: React.FC<props> = ({ modalStateSetter }) => {
       body: "",
     });
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (inputs.body.trim() === "" || inputs.title.trim() === "") {
-      setError({
-        errorMessage: "empty input",
-        errorClassName: cl.emptyInput,
-      });
-
-      setTimeout(() => {
+    if (isFirstCall) {
+      if (inputs.body.trim() === "" || inputs.title.trim() === "") {
         setError({
-          errorMessage: "",
-          errorClassName: "",
+          errorMessage: "empty input",
+          errorClassName: cl.emptyInput,
         });
-      }, 4000);
 
-      return;
+        setTimeout(() => {
+          setError({
+            errorMessage: "",
+            errorClassName: "",
+          });
+        }, 4000);
+
+        return;
+      }
+      dispatch(createPost(inputs)).then(() => closeModal(e));
+      isFirstCall = false;
     }
-    dispatch(createPost(inputs)).then(() => closeModal(e));
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      isFirstCall = true;
+    }, 1000);
+  }, [isFirstCall]);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     const { name, value } = e.target;

@@ -20,29 +20,42 @@ const initialState:InitialState={
     lastId: 0
 }
 
+
 export const postsSlice = createSlice({
     name:'posts',
     initialState,
     reducers:{
       addPost(state, action) {
-          const id = +sessionStorage.getItem('lastId')! || state.lastId
-          state.lastId = id + 1
-          state.posts.push({...action.payload,id:state.lastId});
-          sessionStorage.setItem('lastId',String(state.lastId))
-          sessionStorage.setItem('posts',JSON.stringify(state.posts))
-        },
-        
-        deletePost(state, action) {          
-          state.posts = state.posts.filter(p => p.id !== action.payload) 
-          if (action.payload === state.lastId) {
-            state.lastId = state.posts.at(-1)?.id || state.lastId - 1
-            sessionStorage.setItem('lastId',String(state.lastId))
-          }
-           if(state.post?.id === action.payload){
-            state.post = null
-          }
+        if (!!sessionStorage.getItem('lastId')) {
+          state.lastId = +sessionStorage.getItem('lastId')! || 0
+          console.log('!!sessionStorage.getItem(lastId)',sessionStorage.getItem('lastId'));   
+        }
+        else{
+          state.lastId = state.posts.at(-1)?.id || 0
+          console.log('state.lastId = state.posts.at(-1)?.id || 0', state.posts.at(-1)?.id);
+        }
 
-          sessionStorage.setItem('posts',JSON.stringify(state.posts))
+        state.lastId++
+        
+        state.posts.push({...action.payload,id:state.lastId});
+        sessionStorage.setItem('lastId', String(state.lastId))
+        sessionStorage.setItem('posts',JSON.stringify(state.posts))
+      },
+      
+      deletePost(state, action) {   
+        state.posts = state.posts.filter(p => p.id !== action.payload) 
+        if (action.payload === state.lastId) {
+          state.lastId = state.posts.at(-1)?.id || state.lastId - 1
+          sessionStorage.setItem('lastId',String(state.lastId))
+        }
+        if(state.post?.id === action.payload){
+          state.post = null
+        }
+        if (!state.posts.length) {
+          state.lastId=0
+          sessionStorage.setItem('lastId', String(state.lastId))
+        }
+        sessionStorage.setItem('posts',JSON.stringify(state.posts))
         },
         updatePost(state,action){
           const updatedPostIndex = state.posts.findIndex(post => post.id === action.payload.id) 
@@ -61,7 +74,8 @@ export const postsSlice = createSlice({
           .addCase(fetchPosts.fulfilled, (state, action) => {
             state.status = 'fulfilled';
             state.posts = action.payload.data
-              state.lastId = action.payload.data.at(-1)?.id
+
+            state.lastId = action.payload.data.at(-1)?.id
             sessionStorage.setItem('posts',JSON.stringify(action.payload.data))
             sessionStorage.setItem('lastId',String(state.lastId))
             state.error = null
